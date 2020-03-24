@@ -6,11 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Rsvp.all.destroy_all
-EventsTag.all.destroy_all
-Tag.all.destroy_all
-Event.all.destroy_all
-User.all.destroy_all
+Rsvp.all.delete_all
+EventsTag.all.delete_all
+Tag.all.delete_all
+Event.all.delete_all
+User.all.delete_all
 
 admin = User.create(name: 'admin', email: 'admin@belive.com', img_url: '')
 user1 = User.create(name: 'Matthew', email: 'matthew@belive.com', img_url: '../assets/59755994_10157026264509799_1481350897748410368_o.jpg')
