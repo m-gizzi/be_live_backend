@@ -6,14 +6,28 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Rsvp.all.destroy_all
+EventsTag.all.destroy_all
 Tag.all.destroy_all
 Event.all.destroy_all
 User.all.destroy_all
 
 admin = User.create(name: 'admin', email: 'admin@belive.com', img_url: '')
+user1 = User.create(name: 'Matthew', email: 'matthew@belive.com', img_url: '../assets/59755994_10157026264509799_1481350897748410368_o.jpg')
+user2 = User.create(name: 'Andy', email: 'andy@belive.com', img_url: '../assets/T02MD9XTF-UQJTM04TX-de8274a65d8e-512.jpeg')
 
-Event.create(title: "Fuck off Coronavirus", start_date: DateTime.strptime('03/30/2020', '%m/%d/%Y'), end_date: DateTime.strptime('03/31/2020', '%m/%d/%Y'), ongoing: false, description: "Join us as we all shout fuck you together, but online.", private: false, url: "www.facebook.com", img_url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTrTDhOIlFbP2CK2SqjG7w9QL0uB7S2iHau3talnbpizQrX9DD_', host_id: admin.id)
-Event.create(title: "Fuck off Coronavirus 2", start_date: DateTime.strptime('04/01/2020', '%m/%d/%Y'), end_date: DateTime.strptime('04/10/2020', '%m/%d/%Y'), ongoing: false, description: "Join us as we all shout fuck you together, but online.", private: false, url: "www.facebook.com", img_url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTrTDhOIlFbP2CK2SqjG7w9QL0uB7S2iHau3talnbpizQrX9DD_', host_id: admin.id)
-Event.create(title: "Fuck off Coronavirus 3", start_date: DateTime.strptime('04/06/2020', '%m/%d/%Y'), end_date: DateTime.strptime('04/20/2020', '%m/%d/%Y'), ongoing: false, description: "Join us as we all shout fuck you together, but online.", private: false, url: "www.facebook.com", img_url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTrTDhOIlFbP2CK2SqjG7w9QL0uB7S2iHau3talnbpizQrX9DD_', host_id: admin.id)
+event1 = Event.create(title: "Fuck off Coronavirus", start_date: DateTime.strptime('03/30/2020', '%m/%d/%Y'), end_date: DateTime.strptime('03/31/2020', '%m/%d/%Y'), ongoing: false, description: "Join us as we all shout fuck you together, but online.", private: false, url: "www.facebook.com", img_url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTrTDhOIlFbP2CK2SqjG7w9QL0uB7S2iHau3talnbpizQrX9DD_', host_id: admin.id)
+event2 = Event.create(title: "Fuck off Coronavirus 2", start_date: DateTime.strptime('04/01/2020', '%m/%d/%Y'), end_date: DateTime.strptime('04/10/2020', '%m/%d/%Y'), ongoing: false, description: "Join us as we all shout fuck you together, but online.", private: false, url: "www.facebook.com", img_url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTrTDhOIlFbP2CK2SqjG7w9QL0uB7S2iHau3talnbpizQrX9DD_', host_id: admin.id)
+event3 = Event.create(title: "Fuck off Coronavirus 3", start_date: DateTime.strptime('04/06/2020', '%m/%d/%Y'), end_date: DateTime.strptime('04/20/2020', '%m/%d/%Y'), ongoing: false, description: "Join us as we all shout fuck you together, but online.", private: false, url: "www.facebook.com", img_url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTrTDhOIlFbP2CK2SqjG7w9QL0uB7S2iHau3talnbpizQrX9DD_', host_id: admin.id)
 
-Tag.create(tag_name: "Party")
+tag1 = Tag.create(tag_name: "Party")
+tag2 = Tag.create(tag_name: "Music")
+tag3 = Tag.create(tag_name: "Dance")
+
+EventsTag.create(event_id: event1.id, tag_id: tag1.id)
+EventsTag.create(event_id: event2.id, tag_id: tag1.id)
+EventsTag.create(event_id: event1.id, tag_id: tag2.id)
+
+Rsvp.create(event_id: event1.id, user_id: user1.id)
+Rsvp.create(event_id: event2.id, user_id: user2.id)
+Rsvp.create(event_id: event1.id, user_id: user2.id)
