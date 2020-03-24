@@ -1,3 +1,4 @@
 class EventsTag < ApplicationRecord
-    belongs_to :event, :tag
+    belongs_to :event
+    belongs_to :tag
 end
