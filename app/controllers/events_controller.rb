@@ -2,10 +2,7 @@ class EventsController < ApplicationController
 
 	def index
 		@events = Event.all
-		options = {
-			include: [:tags, :users]
-		}
-		render json: EventSerializer.new(@events, options)
+		render json: EventSerializer.new(@events)
 	end
 
 	def create
